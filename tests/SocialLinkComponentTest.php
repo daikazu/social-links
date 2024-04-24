@@ -6,7 +6,7 @@ it('renders the social link for Facebook correctly', function () {
     $view = Blade::render('<x-social-links::social-link platform="facebook" name="user123" icon-styles="size-12 hover:text-red-500 fill-current"/>');
 
     expect($view)
-        ->toContain('https://www.facebook.com/user123user123', 'class="size-12 hover:text-red-500 fill-current"');
+        ->toContain('https://www.facebook.com/user123', 'class="size-12 hover:text-red-500 fill-current"');
 });
 
 it('throws an exception for unsupported platforms', function () {
