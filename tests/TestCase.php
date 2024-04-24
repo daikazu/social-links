@@ -2,9 +2,9 @@
 
 namespace Daikazu\SocialLinks\Tests;
 
+use Daikazu\SocialLinks\SocialLinksServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Daikazu\SocialLinks\SocialLinksServiceProvider;
 
 class TestCase extends Orchestra
 {
