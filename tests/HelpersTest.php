@@ -19,7 +19,7 @@ it('returns the correct URL for LinkedIn', function () {
 });
 
 it('returns the correct URL for YouTube', function () {
-    expect(social_url('youtube', 'user123'))->toBe('https://www.youtube.com/user/user123');
+    expect(social_url('youtube', 'user123'))->toBe('https://www.youtube.com/@user123');
 });
 
 it('returns the correct URL for pinterest', function () {
