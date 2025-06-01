@@ -19,7 +19,7 @@ if (! function_exists('social_url')) {
             'twitter', 'x' => 'https://x.com/<profileName>',
             'instagram' => 'https://www.instagram.com/<profileName>',
             'linkedin' => 'https://www.linkedin.com/in/<profileName>',
-            'youtube' => 'https://www.youtube.com/user/<profileName>',
+            'youtube' => 'https://www.youtube.com/@<profileName>',
             'pinterest' => 'https://www.pinterest.com/<profileName>',
             'tiktok' => 'https://www.tiktok.com/@<profileName>',
             'snapchat' => 'https://www.snapchat.com/add/<profileName>',
