@@ -33,17 +33,48 @@ php artisan vendor:publish --tag="social-links-views"
 
 You can generate a URL for a social media profile using the `social_url` helper function. Here's how you can use it:
 
+#### Using Strings (Legacy Approach)
+
 ```php
 $url = social_url('facebook', 'username');
 ```
 Replace `'facebook'` with the desired platform and `'username'` with the user's social media profile username.
 
+#### Using Enums (Recommended)
+
+You can also use the `SocialNetwork` enum for better type safety and IDE autocompletion:
+
+```php
+use Daikazu\SocialLinks\Enums\SocialNetwork;
+
+$url = social_url(SocialNetwork::FACEBOOK, 'username');
+
+// Or directly from the enum
+$url = SocialNetwork::FACEBOOK->getUrl('username');
+```
+
 ### Displaying Social Icons
 
 To display a social icon link, use the Blade component included in the package. Here's an example:
+
+#### Using Strings (Legacy Approach)
+
 ```bladehtml
 <x-social-links::social-link platform="facebook" name="username" icon-styles="size-12 hover:text-red-500 fill-current"/>
 ```
+
+#### Using Enums (Recommended)
+
+```php
+use Daikazu\SocialLinks\Enums\SocialNetwork;
+
+// In your controller or view composer
+$platform = SocialNetwork::FACEBOOK;
+
+// In your Blade view
+<x-social-links::social-link :platform="$platform" name="username" icon-styles="size-12 hover:text-red-500 fill-current"/>
+```
+
 Adjust the `platform`, `name`, and `icon-styles` attributes as necessary to fit your needs.
 
 ## Supported Social Platforms
