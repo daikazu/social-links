@@ -10,6 +10,10 @@ it('returns the correct URL for Twitter', function () {
     expect(social_url('twitter', 'user123'))->toBe('https://x.com/user123');
 });
 
+it('returns the correct URL for X', function () {
+    expect(social_url('x', 'user123'))->toBe('https://x.com/user123');
+});
+
 it('returns the correct URL for Instagram', function () {
     expect(social_url('instagram', 'user123'))->toBe('https://www.instagram.com/user123');
 });
@@ -56,6 +60,74 @@ it('returns the correct URL for github', function () {
 
 it('returns the correct URL for discord', function () {
     expect(social_url('discord', 'user123'))->toBe('https://discordapp.com/users/user123');
+});
+
+it('returns the correct URL for address', function () {
+    expect(social_url('address', '123 Main St'))->toBe('123 Main St');
+});
+
+it('returns the correct URL for apple_music', function () {
+    expect(social_url('apple_music', 'artist/123'))->toBe('https://music.apple.com/artist/123');
+});
+
+it('returns the correct URL for bandcamp', function () {
+    expect(social_url('bandcamp', 'artistname'))->toBe('https://artistname.bandcamp.com');
+});
+
+it('returns the correct URL for booking', function () {
+    expect(social_url('booking', 'https://booking.com/profile'))->toBe('https://booking.com/profile');
+});
+
+it('returns the correct URL for buy_merch', function () {
+    expect(social_url('buy_merch', 'https://store.com'))->toBe('https://store.com');
+});
+
+it('returns the correct URL for contact_form', function () {
+    expect(social_url('contact_form', 'https://example.com/contact'))->toBe('https://example.com/contact');
+});
+
+it('returns the correct URL for donate', function () {
+    expect(social_url('donate', 'https://donate.com/me'))->toBe('https://donate.com/me');
+});
+
+it('returns the correct URL for email', function () {
+    expect(social_url('email', 'user@example.com'))->toBe('mailto:user@example.com');
+});
+
+it('returns the correct URL for google_play', function () {
+    expect(social_url('google_play', 'artist123'))->toBe('https://play.google.com/store/music/artist?id=artist123');
+});
+
+it('returns the correct URL for other', function () {
+    expect(social_url('other', 'https://other.com'))->toBe('https://other.com');
+});
+
+it('returns the correct URL for patreon', function () {
+    expect(social_url('patreon', 'creator'))->toBe('https://www.patreon.com/creator');
+});
+
+it('returns the correct URL for phone', function () {
+    expect(social_url('phone', '+1234567890'))->toBe('tel:+1234567890');
+});
+
+it('returns the correct URL for soundcloud', function () {
+    expect(social_url('soundcloud', 'artist'))->toBe('https://soundcloud.com/artist');
+});
+
+it('returns the correct URL for spotify', function () {
+    expect(social_url('spotify', '123456'))->toBe('https://open.spotify.com/artist/123456');
+});
+
+it('returns the correct URL for stream', function () {
+    expect(social_url('stream', 'https://stream.com/me'))->toBe('https://stream.com/me');
+});
+
+it('returns the correct URL for twitch', function () {
+    expect(social_url('twitch', 'streamer'))->toBe('https://www.twitch.tv/streamer');
+});
+
+it('returns the correct URL for website', function () {
+    expect(social_url('website', 'https://example.com'))->toBe('https://example.com');
 });
 
 it('returns null for unsupported platforms', function () {
