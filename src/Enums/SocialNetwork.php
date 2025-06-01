@@ -19,6 +19,23 @@ enum SocialNetwork: string
     case TELEGRAM = 'telegram';
     case GITHUB = 'github';
     case DISCORD = 'discord';
+    case ADDRESS = 'address';
+    case APPLE_MUSIC = 'apple_music';
+    case BANDCAMP = 'bandcamp';
+    case BOOKING = 'booking';
+    case BUY_MERCH = 'buy_merch';
+    case CONTACT_FORM = 'contact_form';
+    case DONATE = 'donate';
+    case EMAIL = 'email';
+    case GOOGLE_PLAY = 'google_play';
+    case OTHER = 'other';
+    case PATREON = 'patreon';
+    case PHONE = 'phone';
+    case SOUNDCLOUD = 'soundcloud';
+    case SPOTIFY = 'spotify';
+    case STREAM = 'stream';
+    case TWITCH = 'twitch';
+    case WEBSITE = 'website';
 
     /**
      * Try to create a SocialNetwork from a string.
@@ -55,6 +72,23 @@ enum SocialNetwork: string
             self::TELEGRAM => 'https://t.me/<profileName>',
             self::GITHUB => 'https://github.com/<profileName>',
             self::DISCORD => 'https://discordapp.com/users/<profileName>',
+            self::ADDRESS => '<profileName>',
+            self::APPLE_MUSIC => 'https://music.apple.com/<profileName>',
+            self::BANDCAMP => 'https://<profileName>.bandcamp.com',
+            self::BOOKING => '<profileName>',
+            self::BUY_MERCH => '<profileName>',
+            self::CONTACT_FORM => '<profileName>',
+            self::DONATE => '<profileName>',
+            self::EMAIL => 'mailto:<profileName>',
+            self::GOOGLE_PLAY => 'https://play.google.com/store/music/artist?id=<profileName>',
+            self::OTHER => '<profileName>',
+            self::PATREON => 'https://www.patreon.com/<profileName>',
+            self::PHONE => 'tel:<profileName>',
+            self::SOUNDCLOUD => 'https://soundcloud.com/<profileName>',
+            self::SPOTIFY => 'https://open.spotify.com/artist/<profileName>',
+            self::STREAM => '<profileName>',
+            self::TWITCH => 'https://www.twitch.tv/<profileName>',
+            self::WEBSITE => '<profileName>',
         };
     }
 
