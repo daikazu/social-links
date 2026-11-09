@@ -3,10 +3,10 @@
 @php
     use Daikazu\SocialLinks\Enums\SocialNetwork;
 
-    $platformString = $platform instanceof SocialNetwork ? $platform->value : $platform;
     $url = social_url($platform, $name);
-    $label = ($platform instanceof SocialNetwork ? $platform : SocialNetwork::tryFromString($platform))->label();
-    $iconView = 'social-links::icons.' . $platformString;
+    $network = $platform instanceof SocialNetwork ? $platform : SocialNetwork::tryFromString($platform);
+    $label = $network->label();
+    $iconView = 'social-links::icons.' . $network->value;
 @endphp
 
 @if($url)

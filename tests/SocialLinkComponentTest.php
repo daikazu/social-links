@@ -28,3 +28,12 @@ it('uses the display name for /dev/null', function () {
         ->toContain('https://dev-null.sh/@user123')
         ->toContain('title="Visit us on /dev/null"');
 });
+
+it('resolves the icon for a mixed-case platform string', function () {
+    $view = Blade::render('<x-social-links::social-link platform="GitHub" name="user123" icon-styles="size-6"/>');
+
+    expect($view)
+        ->toContain('https://github.com/user123')
+        ->toContain('title="Visit us on GitHub"')
+        ->toContain('<svg');
+});
