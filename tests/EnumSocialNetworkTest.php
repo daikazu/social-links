@@ -62,6 +62,10 @@ it('returns the correct URL for Discord using enum', function () {
     expect(social_url(SocialNetwork::DISCORD, 'user123'))->toBe('https://discordapp.com/users/user123');
 });
 
+it('returns the correct URL for /dev/null using enum', function () {
+    expect(social_url(SocialNetwork::DEV_NULL, 'user123'))->toBe('https://dev-null.sh/@user123');
+});
+
 it('returns the correct URL for Address using enum', function () {
     expect(social_url(SocialNetwork::ADDRESS, '123 Main St'))->toBe('123 Main St');
 });
@@ -143,4 +147,19 @@ it('renders the social link component with enum correctly', function () {
         ->toContain('https://www.facebook.com/user123')
         ->toContain('Visit us on Facebook')
         ->toContain('class="size-12"');
+});
+
+it('returns display names for networks', function (SocialNetwork $network, string $label) {
+    expect($network->label())->toBe($label);
+})->with([
+    [SocialNetwork::LINKEDIN, 'LinkedIn'],
+    [SocialNetwork::YOUTUBE, 'YouTube'],
+    [SocialNetwork::APPLE_MUSIC, 'Apple Music'],
+    [SocialNetwork::DEV_NULL, '/dev/null'],
+]);
+
+it('has a non-empty display name for every network', function () {
+    foreach (SocialNetwork::cases() as $network) {
+        expect($network->label())->not->toBeEmpty();
+    }
 });

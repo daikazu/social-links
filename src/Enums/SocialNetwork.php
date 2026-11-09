@@ -19,6 +19,7 @@ enum SocialNetwork: string
     case TELEGRAM = 'telegram';
     case GITHUB = 'github';
     case DISCORD = 'discord';
+    case DEV_NULL = 'dev_null';
     case ADDRESS = 'address';
     case APPLE_MUSIC = 'apple_music';
     case BANDCAMP = 'bandcamp';
@@ -51,6 +52,50 @@ enum SocialNetwork: string
     }
 
     /**
+     * Get the human-readable display name for this social network.
+     *
+     * @return string The display name, e.g. "LinkedIn" or "Apple Music".
+     */
+    public function label(): string
+    {
+        return match ($this) {
+            self::FACEBOOK => 'Facebook',
+            self::TWITTER => 'Twitter',
+            self::X => 'X',
+            self::INSTAGRAM => 'Instagram',
+            self::LINKEDIN => 'LinkedIn',
+            self::YOUTUBE => 'YouTube',
+            self::PINTEREST => 'Pinterest',
+            self::TIKTOK => 'TikTok',
+            self::SNAPCHAT => 'Snapchat',
+            self::REDDIT => 'Reddit',
+            self::YELP => 'Yelp',
+            self::WHATSAPP => 'WhatsApp',
+            self::TELEGRAM => 'Telegram',
+            self::GITHUB => 'GitHub',
+            self::DISCORD => 'Discord',
+            self::DEV_NULL => '/dev/null',
+            self::ADDRESS => 'Address',
+            self::APPLE_MUSIC => 'Apple Music',
+            self::BANDCAMP => 'Bandcamp',
+            self::BOOKING => 'Booking',
+            self::BUY_MERCH => 'Buy Merch',
+            self::CONTACT_FORM => 'Contact Form',
+            self::DONATE => 'Donate',
+            self::EMAIL => 'Email',
+            self::GOOGLE_PLAY => 'Google Play',
+            self::OTHER => 'Other',
+            self::PATREON => 'Patreon',
+            self::PHONE => 'Phone',
+            self::SOUNDCLOUD => 'SoundCloud',
+            self::SPOTIFY => 'Spotify',
+            self::STREAM => 'Stream',
+            self::TWITCH => 'Twitch',
+            self::WEBSITE => 'Website',
+        };
+    }
+
+    /**
      * Get the URL pattern for this social network.
      *
      * @return string The URL pattern with <profileName> placeholder.
@@ -72,6 +117,7 @@ enum SocialNetwork: string
             self::TELEGRAM => 'https://t.me/<profileName>',
             self::GITHUB => 'https://github.com/<profileName>',
             self::DISCORD => 'https://discordapp.com/users/<profileName>',
+            self::DEV_NULL => 'https://dev-null.sh/@<profileName>',
             self::ADDRESS => '<profileName>',
             self::APPLE_MUSIC => 'https://music.apple.com/<profileName>',
             self::BANDCAMP => 'https://<profileName>.bandcamp.com',

@@ -89,6 +89,7 @@ The package currently supports URL generation and icon link rendering for the fo
 - Booking
 - Buy Merch
 - Contact Form
+- /dev/null (dev-null.sh)
 - Discord
 - Donate
 - Email
@@ -137,7 +138,7 @@ $socialNetworks = SocialNetwork::cases();
             icon-styles="size-6 mr-3 fill-current"
             class="flex items-center transition-colors hover:text-blue-500"
         />
-        <span>{{ ucfirst($network->value) }}</span>
+        <span>{{ $network->label() }}</span>
     </div>
     @endforeach
 </div>
