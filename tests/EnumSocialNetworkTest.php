@@ -1,6 +1,7 @@
 <?php
 
 use Daikazu\SocialLinks\Enums\SocialNetwork;
+use Illuminate\Support\Facades\Blade;
 
 it('returns the correct URL for Facebook using enum', function () {
     expect(social_url(SocialNetwork::FACEBOOK, 'user123'))->toBe('https://www.facebook.com/user123');
@@ -139,7 +140,7 @@ it('can get URL directly from enum', function () {
 });
 
 it('renders the social link component with enum correctly', function () {
-    $view = Illuminate\Support\Facades\Blade::render('<x-social-links::social-link :platform="$platform" name="user123" icon-styles="size-12"/>', [
+    $view = Blade::render('<x-social-links::social-link :platform="$platform" name="user123" icon-styles="size-12"/>', [
         'platform' => SocialNetwork::FACEBOOK,
     ]);
 
