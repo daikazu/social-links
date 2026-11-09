@@ -1,6 +1,7 @@
 <?php
 
 use Daikazu\SocialLinks\Enums\SocialNetwork;
+use Illuminate\Support\Facades\Blade;
 
 it('returns the correct URL for Facebook using enum', function () {
     expect(social_url(SocialNetwork::FACEBOOK, 'user123'))->toBe('https://www.facebook.com/user123');
@@ -60,6 +61,10 @@ it('returns the correct URL for GitHub using enum', function () {
 
 it('returns the correct URL for Discord using enum', function () {
     expect(social_url(SocialNetwork::DISCORD, 'user123'))->toBe('https://discordapp.com/users/user123');
+});
+
+it('returns the correct URL for /dev/null using enum', function () {
+    expect(social_url(SocialNetwork::DEV_NULL, 'user123'))->toBe('https://dev-null.sh/@user123');
 });
 
 it('returns the correct URL for Address using enum', function () {
@@ -135,7 +140,7 @@ it('can get URL directly from enum', function () {
 });
 
 it('renders the social link component with enum correctly', function () {
-    $view = Illuminate\Support\Facades\Blade::render('<x-social-links::social-link :platform="$platform" name="user123" icon-styles="size-12"/>', [
+    $view = Blade::render('<x-social-links::social-link :platform="$platform" name="user123" icon-styles="size-12"/>', [
         'platform' => SocialNetwork::FACEBOOK,
     ]);
 
@@ -143,4 +148,19 @@ it('renders the social link component with enum correctly', function () {
         ->toContain('https://www.facebook.com/user123')
         ->toContain('Visit us on Facebook')
         ->toContain('class="size-12"');
+});
+
+it('returns display names for networks', function (SocialNetwork $network, string $label) {
+    expect($network->label())->toBe($label);
+})->with([
+    [SocialNetwork::LINKEDIN, 'LinkedIn'],
+    [SocialNetwork::YOUTUBE, 'YouTube'],
+    [SocialNetwork::APPLE_MUSIC, 'Apple Music'],
+    [SocialNetwork::DEV_NULL, '/dev/null'],
+]);
+
+it('has a non-empty display name for every network', function () {
+    foreach (SocialNetwork::cases() as $network) {
+        expect($network->label())->not->toBeEmpty();
+    }
 });

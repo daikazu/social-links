@@ -62,6 +62,10 @@ it('returns the correct URL for discord', function () {
     expect(social_url('discord', 'user123'))->toBe('https://discordapp.com/users/user123');
 });
 
+it('returns the correct URL for dev_null', function () {
+    expect(social_url('dev_null', 'user123'))->toBe('https://dev-null.sh/@user123');
+});
+
 it('returns the correct URL for address', function () {
     expect(social_url('address', '123 Main St'))->toBe('123 Main St');
 });
